@@ -1,18 +1,17 @@
-import { Task } from '@core/domain/entities/task';
 import { UniqueId } from '@core/domain/value-objects/unique-id';
 import { NotFoundException } from '@core/domain/exceptions/not-found-exception';
-import { TaskRepository } from '@core/domain/ports/tasks-repository';
+import { TaskRepository } from '@core/domain/ports/task-repository';
 
-export class FindTaskByIdUseCase {
+export class DeleteTaskUseCase {
   constructor(private readonly taskRepository: TaskRepository) {}
 
-  async execute(id: UniqueId): Promise<Task> {
+  async execute(id: UniqueId): Promise<void> {
     const task = await this.taskRepository.findById(id);
 
     if (!task) {
       throw new NotFoundException('Task not found');
     }
 
-    return task;
+    await this.taskRepository.delete(id);
   }
 }

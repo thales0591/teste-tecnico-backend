@@ -2,7 +2,7 @@ import { Task } from '@core/domain/entities/task';
 import { UniqueId } from '@core/domain/value-objects/unique-id';
 import { NotFoundException } from '@core/domain/exceptions/not-found-exception';
 import { TaskStatus } from '@core/domain/entities/task';
-import { TaskRepository } from '@core/domain/ports/tasks-repository';
+import { TaskRepository } from '@core/domain/ports/task-repository';
 
 export interface UpdateTaskProps {
   id: UniqueId;

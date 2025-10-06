@@ -1,6 +1,6 @@
 import { Task, TaskStatus } from '@core/domain/entities/task';
 import { UniqueId } from '@core/domain/value-objects/unique-id';
-import { TaskRepository } from '@core/domain/ports/tasks-repository';
+import { TaskRepository } from '@core/domain/ports/task-repository';
 
 export interface CreateTaskProps {
   title: string;
