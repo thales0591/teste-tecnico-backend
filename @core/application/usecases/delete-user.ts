@@ -5,15 +5,13 @@ import { UniqueId } from '@core/domain/value-objects/unique-id';
 export class DeleteUserUseCase {
   constructor(private readonly userRepository: UserRepository) {}
 
-  async execute(id: string): Promise<void> {
-    const userId = new UniqueId(id);
-
-    const user = await this.userRepository.findById(userId);
+  async execute(id: UniqueId): Promise<void> {
+    const user = await this.userRepository.findById(id);
 
     if (!user) {
       throw new NotFoundException('User not found');
     }
 
-    await this.userRepository.delete(userId);
+    await this.userRepository.delete(id);
   }
 }

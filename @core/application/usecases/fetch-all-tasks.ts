@@ -1,7 +1,7 @@
 import { Task } from '@core/domain/entities/task';
 import { TaskRepository } from '@core/domain/ports/task-repository';
 
-export class FindAllTasksUseCase {
+export class FetchAllTasksUseCase {
   constructor(private readonly taskRepository: TaskRepository) {}
 
   async execute(): Promise<Task[]> {
