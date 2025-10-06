@@ -4,6 +4,7 @@ import { DatabaseModule } from './database/database.module';
 import { envSchema } from './env/env';
 import { UserModule } from '../modules/user/user.module';
 import { TaskModule } from '../modules/task/task.module';
+import { MiddlewareModule } from './middlewares/middlewate.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { TaskModule } from '../modules/task/task.module';
       isGlobal: true,
     }),
     DatabaseModule,
+    MiddlewareModule,
     UserModule,
     TaskModule,
   ],

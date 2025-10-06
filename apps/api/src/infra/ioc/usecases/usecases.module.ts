@@ -57,10 +57,13 @@ import {
     },
     {
       provide: CreateTaskUseCase,
-      useFactory: (repository: TaskRepository) => {
-        return new CreateTaskUseCase(repository);
+      useFactory: (
+        repository: TaskRepository,
+        userRepository: UserRepository,
+      ) => {
+        return new CreateTaskUseCase(repository, userRepository);
       },
-      inject: [TaskRepository],
+      inject: [TaskRepository, UserRepository],
     },
     {
       provide: UpdateTaskUseCase,
