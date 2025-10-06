@@ -26,7 +26,7 @@ export class UpdateUserUseCase {
       password,
     });
 
-    await this.userRepository.save(user);
+    await this.userRepository.update(user);
 
     return user;
   }

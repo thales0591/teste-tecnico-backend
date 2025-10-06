@@ -5,7 +5,6 @@ import { TaskRepository } from '@core/domain/ports/task-repository';
 export interface CreateTaskProps {
   title: string;
   description: string;
-  status?: TaskStatus;
   userId: UniqueId;
 }
 

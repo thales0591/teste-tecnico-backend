@@ -29,14 +29,17 @@ export class TaskController {
     private readonly updateTaskUseCase: UpdateTaskUseCase,
   ) {}
 
-  @Post()
-  async create(@Body() body: CreateTaskRequest): Promise<TaskResponse> {
+  @Post(':userId')
+  async create(
+    @Param('userId') userId: string,
+    @Body() body: CreateTaskRequest,
+  ): Promise<TaskResponse> {
     const task = await this.createTaskUseCase.execute({
       title: body.title,
       description: body.description,
-      status: body.status,
-      userId: UniqueId.create(body.userId),
+      userId: UniqueId.create(userId),
     });
+
     return TaskResponse.from(task);
   }
 

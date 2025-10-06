@@ -9,11 +9,4 @@ export class CreateTaskRequest {
   @IsNotEmpty()
   @IsString()
   description: string;
-
-  @IsEnum(TaskStatus)
-  status: TaskStatus;
-
-  @IsNotEmpty()
-  @IsUUID()
-  userId: string;
 }
