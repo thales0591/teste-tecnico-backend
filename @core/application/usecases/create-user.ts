@@ -1,5 +1,4 @@
 import { User } from '@core/domain/entities/user';
-import { StringValidator } from '@core/domain/validators/strings-validator';
 import { ConflictException } from '@core/domain/exceptions/conflict-exception';
 import { Encrypter } from '../ports/encrypter';
 import { UserRepository } from '@core/domain/ports/user-repository';
@@ -22,10 +21,6 @@ export class CreateUserUseCase {
     if (existingUser) {
       throw new ConflictException('User already exists');
     }
-
-    StringValidator.isEmailOrThrows('email', email);
-    StringValidator.isPasswordOrThrows(password);
-    StringValidator.isNotEmptyOrThrows('name', name);
 
     const hashedPassword = await this.encrypter.hash(password);
 
