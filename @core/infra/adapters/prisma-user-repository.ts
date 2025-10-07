@@ -2,7 +2,7 @@ import { UserRepository } from '@core/domain/ports/user-repository';
 import { User as DomainUser } from '@core/domain/entities/user';
 import { UniqueId } from '@core/domain/value-objects/unique-id';
 import { IPrisma } from '../prisma-client';
-import { User as PrismaUser } from '../generated/prisma';
+import { User as PrismaUser } from '@prisma/client';
 
 export class PrismaUserRepository extends UserRepository {
   constructor(private readonly prisma: IPrisma) {

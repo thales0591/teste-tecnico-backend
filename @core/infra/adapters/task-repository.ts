@@ -2,7 +2,7 @@ import { Task as DomainTask, TaskStatus } from '@core/domain/entities/task';
 import { UniqueId } from '@core/domain/value-objects/unique-id';
 import { IPrisma } from '../prisma-client';
 import { TaskRepository } from '@core/domain/ports/task-repository';
-import { Task as PrismaTask } from '../generated/prisma';
+import { Task as PrismaTask } from '@prisma/client';
 
 export class PrismaTaskRepository extends TaskRepository {
   constructor(private readonly prisma: IPrisma) {
