@@ -13,3 +13,7 @@ services:
       - /usr/share/zoneinfo/America/Recife:/etc/localtime:ro
       - dbdata:/var/lib/postgresql/data
     restart: 'unless-stopped'
+
+volumes:
+  dbdata:
+    name: database-data
